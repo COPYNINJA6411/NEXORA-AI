@@ -1,0 +1,36 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.nexora-api
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NEXORA_API_URL: http://api:8000
+      NEXORA_DATABASE_URL: ${NEXORA_DATABASE_URL:-sqlite:////workspace/data/nexora_demo.sqlite3}
+      NEXORA_DATASET: ${NEXORA_DATASET:-demo}
+      NEXORA_MCP_ALLOWED_HOSTS: ${NEXORA_MCP_ALLOWED_HOSTS:-api:8000,localhost:8000,127.0.0.1:8000,host.docker.internal:8000}
+      NEXORA_DATASETS_JSON: ${NEXORA_DATASETS_JSON:-}
+      NEXORA_AUTH_ENABLED: ${NEXORA_AUTH_ENABLED:-false}
+      NEXORA_USERS_JSON: ${NEXORA_USERS_JSON:-}
+      NEXORA_JWT_SECRET: ${NEXORA_JWT_SECRET:-}
+      NEXORA_TOKEN_TTL_SECONDS: ${NEXORA_TOKEN_TTL_SECONDS:-3600}
+      CREWAI_MODEL: ${CREWAI_MODEL:-openai/gpt-4o-mini}
+    command: ["sh", "-c", "python -m app.database.seed && uvicorn app.backend.main:app --host 0.0.0.0 --port 8000"]
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - nexora_data:/workspace/data
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.nexora-frontend
+    environment:
+      NEXORA_API_URL: http://api:8000
+    ports:
+      - "127.0.0.1:8501:8501"
+    depends_on:
+      - api
+volumes:
+  nexora_data:
