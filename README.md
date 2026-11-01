@@ -10,6 +10,10 @@ The overview brings filters, key metrics, trend charts, product performance, and
 
 ![NEXORA AI business overview dashboard using synthetic demo data](docs/images/dashboard-overview.png)
 
+The overview combines the revenue and profit trend with product-level results:
+
+![Monthly revenue, profit, and top product performance](docs/images/revenue-performance.png)
+
 ## What it demonstrates
 
 - **Business analytics:** filter revenue, profit, orders, customers, products, and segments by date and business dimensions.
