@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title description">
+  <title id="title">NEXORA AI application architecture</title>
+  <desc id="description">Streamlit frontend calls a FastAPI backend, which coordinates analytics, optional CrewAI workflows, MCP tools, and read-only SQLite or PostgreSQL data access.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101827"/>
+      <stop offset="1" stop-color="#17253a"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#7dd3fc"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Segoe UI, Arial, sans-serif; fill: #f8fafc; }
+      .subtitle { font: 15px Segoe UI, Arial, sans-serif; fill: #a9bad0; }
+      .box-title { font: 700 20px Segoe UI, Arial, sans-serif; fill: #f8fafc; }
+      .body { font: 15px Segoe UI, Arial, sans-serif; fill: #d4dfec; }
+      .tag { font: 700 12px Segoe UI, Arial, sans-serif; fill: #08111f; }
+      .edge { fill: none; stroke: #7dd3fc; stroke-width: 3; marker-end: url(#arrow); }
+      .edge-label { font: 13px Segoe UI, Arial, sans-serif; fill: #b8dff2; }
+    </style>
+  </defs>
+  <rect width="1200" height="560" rx="24" fill="url(#bg)"/>
+  <text x="48" y="55" class="title">NEXORA AI architecture</text>
+  <text x="48" y="82" class="subtitle">Separate UI and API · bounded read-only analytics · optional model-backed orchestration</text>
+
+  <rect x="55" y="160" width="260" height="190" rx="18" fill="#1e3a5f" stroke="#4e83b5" stroke-width="2"/>
+  <rect x="76" y="181" width="104" height="25" rx="12" fill="#7dd3fc"/>
+  <text x="91" y="199" class="tag">FRONTEND</text>
+  <text x="76" y="240" class="box-title">Streamlit</text>
+  <text x="76" y="270" class="body">Dashboard · analyst · SQL explorer</text>
+  <text x="76" y="296" class="body">Anomalies · forecasts · reports</text>
+  <text x="76" y="322" class="body">Plotly charts and file downloads</text>
+
+  <rect x="425" y="160" width="300" height="190" rx="18" fill="#164e63" stroke="#2d9b9f" stroke-width="2"/>
+  <rect x="447" y="181" width="80" height="25" rx="12" fill="#67e8f9"/>
+  <text x="462" y="199" class="tag">API</text>
+  <text x="447" y="240" class="box-title">FastAPI backend</text>
+  <text x="447" y="270" class="body">Authentication · datasets · analytics</text>
+  <text x="447" y="296" class="body">SQL validation · timeout · row bounds</text>
+  <text x="447" y="322" class="body">CSV · Excel · PDF report endpoints</text>
+
+  <rect x="850" y="92" width="290" height="165" rx="18" fill="#453363" stroke="#9974d3" stroke-width="2"/>
+  <rect x="872" y="113" width="104" height="25" rx="12" fill="#c4b5fd"/>
+  <text x="888" y="131" class="tag">ORCHESTRATION</text>
+  <text x="872" y="171" class="box-title">CrewAI agents</text>
+  <text x="872" y="201" class="body">Question planning and sales briefs</text>
+  <text x="872" y="227" class="body">Configurable model provider</text>
+
+  <rect x="850" y="290" width="290" height="145" rx="18" fill="#4a3521" stroke="#c0843d" stroke-width="2"/>
+  <rect x="872" y="311" width="70" height="25" rx="12" fill="#fcd34d"/>
+  <text x="892" y="329" class="tag">TOOLS</text>
+  <text x="872" y="369" class="box-title">MCP server</text>
+  <text x="872" y="399" class="body">Selected analytics tools for clients</text>
+
+  <rect x="425" y="420" width="300" height="100" rx="18" fill="#26384a" stroke="#71869e" stroke-width="2"/>
+  <text x="447" y="458" class="box-title">Data and analytics</text>
+  <text x="447" y="488" class="body">SQLite / PostgreSQL · Pandas · NumPy · scikit-learn</text>
+
+  <path d="M315 255 H410" class="edge"/>
+  <text x="336" y="240" class="edge-label">HTTPS API</text>
+  <path d="M725 205 C770 205 790 175 835 175" class="edge"/>
+  <text x="746" y="185" class="edge-label">assistant tasks</text>
+  <path d="M725 292 C775 292 795 360 835 360" class="edge"/>
+  <text x="748" y="331" class="edge-label">tool access</text>
+  <path d="M995 257 V280" class="edge"/>
+  <text x="1008" y="276" class="edge-label">MCP</text>
+  <path d="M575 350 V410" class="edge"/>
+</svg>
